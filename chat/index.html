@@ -1,0 +1,15 @@
+<html>
+ <head>
+  <script src='angular.js'> </script>
+  <script src='controllers.js'> </script>
+ </head>
+ <body>
+ <div ng-app='sampleApp' ng-controller='MyController'>
+  <input ng-model='myMessage.text'>
+  <button ng-click="sendMessage()">Send</button>
+  <div ng-repeat='message in messages | orderBy : "id" : true'>
+    {{message.text}}
+  </div>
+  </div>
+ </body>
+</html>

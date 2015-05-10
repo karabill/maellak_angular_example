@@ -1,0 +1,26 @@
+<html ng-app>
+<head>
+  <script src="angular.js"></script>
+  <script>
+  function MyController($scope, $timeout) {
+
+    $scope.counter = 0;
+    $scope.onTimeout = function(){
+      $scope.counter++;
+      mytimeout = $timeout($scope.onTimeout, 1000);
+    }
+    var mytimeout = $timeout($scope.onTimeout, 1000);
+
+    $scope.stop = function(){
+      $timeout.cancel(mytimeout);
+    }
+  }
+  </script>
+</head>
+<body>
+  <div ng-controller="MyController">
+    {{counter}}
+    <button ng-click="stop()">Stop</button>
+  </div>
+</body>
+</html>
